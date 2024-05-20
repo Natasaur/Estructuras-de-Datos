@@ -12,12 +12,33 @@ y desplegar el pago bruto por empleado.
 #include <stdlib.h>
 int main() {
     int num_empleados, horas;
-    float pagoxhora;
+    float pagoxhora, pagobruto;
     system("cls");
     printf("Ingrese el número de empleados: ");
     scanf("%d",&num_empleados);
-    for(){
-        
+    int Horas[num_empleados];
+    float PagosHora[num_empleados],PagosBruto[num_empleados];
+    for(int i = 0 ; i < num_empleados ; i++){
+        system("cls");
+        printf("Ingrese el número de horas trabajadas del empleado %d: ",i + 1);
+        scanf("%d",&horas);
+        printf("Ingrese el pago por hora del empleado %d: ",i + 1);
+        scanf("%f",&pagoxhora);
+        Horas[i] = horas;
+        PagosHora[i] = pagoxhora;
+    }
+    system("cls");
+    for(int i = 0 ; i < num_empleados ; i++){
+        if(Horas[i] <= 40){
+            pagobruto = 0.87*Horas[i]*PagosHora[i];
+            PagosBruto[i] = pagobruto;
+        }else{
+            pagobruto = 0.87*(40*PagosHora[i]+(Horas[i]-40)*PagosHora[i]*1.5);
+            PagosBruto[i] = pagobruto;
+        }
+    }
+    for(int i = 0 ; i < num_empleados ; i++){
+        printf("El empleado %d trabajó %d y su sueldo será de: $%f.\n",i+1,Horas[i],PagosBruto[i]);
     }
     return 0;
 }
