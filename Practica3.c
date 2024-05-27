@@ -1,3 +1,4 @@
+//Programa hecho por @Natalia García
 //21/05/2024
 //La suma de los valores
 //El promedio de los valores

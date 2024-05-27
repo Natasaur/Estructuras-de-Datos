@@ -1,11 +1,14 @@
+//Programa hecho por @Natalia García
 //22/05/2024
+//Calificaciones ingresadas por el usuario
+//Gráfica de asteriscos de acuerdo al promedio
 //Arreglo de nombres de alumnos (5 Elementos)
 //Arreglo para cada materia
 //Arreglo de promedio
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <ios>
+
 using namespace std;
 
 int main (){
@@ -22,7 +25,11 @@ int main (){
     }
     cout << left << setw(30) << "Nombre del Alumno" << left << setw(21) << "Estructura de Datos" << left << setw(12) << "Innovacion" << left << setw(21) << "Metodologias Agiles" << left << setw(8) << "Ingles" << left << setw(9) << "Promedio\n";
     for(int i=0;i<5;i++){
-        cout << left << setw(40) << Alumnos[i] << left << setw(16) << ED[i] << left << setw(18) << Inn[i] << left << setw(12) << MetA[i] << left << setw(9) << Ingl[i] << left << setw(6) << Prom[i] << "***************\n";
+        cout << left << setw(40) << Alumnos[i] << left << setw(16) << ED[i] << left << setw(18) << Inn[i] << left << setw(12) << MetA[i] << left << setw(9) << Ingl[i] << left << setw(6) << Prom[i];
+        for(int j=0; j<Prom[i];j++){
+            cout << "*";
+        }
+        cout << "\n";
     }
     return 0;
 }
