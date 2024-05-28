@@ -2,7 +2,7 @@
 //24/05/2024
 //Calificaciones ingresadas por el usuario
 //Gráfica de asteriscos de acuerdo al promedio
-//Arreglo de nombres de alumnos (5 Elementos)
+//Arreglo de nombres de alumnos (20 Elementos)
 //Arreglo para cada materia
 //Arreglo de promedio
 #include <iostream>
@@ -62,11 +62,9 @@ int main (){
             for(int j=0; j<Frecuencia[i]; j++){
                 cout << "*";
             }
-            //cout << "\n";
         }
         cout << "\n";
     }
-    //cout << "\n";
     
     return 0;
 }
