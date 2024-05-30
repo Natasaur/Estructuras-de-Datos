@@ -8,8 +8,9 @@ int main(){
     int aux,suma=0;
     float prom;
     int Vector[10];
+    system("cls");
     for(int i=0;i<10;i++){
-        printf("Ingresa el valor de la posición %d: \n",i+1);
+        printf("Ingresa el valor de la posición %d: ",i+1);
         scanf("%d",&aux);
         Vector[i]=aux;
         suma=suma+aux;
