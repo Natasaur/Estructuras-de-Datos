@@ -8,7 +8,7 @@
 using namespace std;
 
 int main (){
-    int aux = 5;
+    int aux = 1;
     string Nombre[aux], Fecha[aux], Email[aux],Tel[aux];
     int Edad[aux];
     

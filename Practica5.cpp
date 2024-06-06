@@ -12,9 +12,9 @@
 using namespace std;
 
 int main (){
-    int aux = 5;
+    int aux = 1;
     string Alumnos[aux];
-    int ED[aux], Inn[aux], MetA[aux], Ingl[aux],Frecuencia[10]={0},frec=0;
+    int ED[aux], Inn[aux], MetA[aux], Ingl[aux],Frecuencia[10]={0};
     float Prom[aux], prom;
 
     for(int i=0; i<aux; i++){
