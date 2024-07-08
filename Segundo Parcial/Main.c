@@ -1,3 +1,5 @@
+//Programa hecho por @Natalia García
+//05/07/24
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -47,12 +49,12 @@ int main() {
 					imprimirRegistro(ptrCf); //Imprime todos los regristros
 
 				default:
-					if(eleccion != 6){
+					if(eleccion != 6 || eleccion != 5 || eleccion != 4 || eleccion != 3 || eleccion != 2 || eleccion != 1){
 						printf("Opción incorrecta\n"); /* si el usuario no selecciona una opción válida, despliega un mensaje */
 					}					
 					break;
 			}
-		}while ((eleccion = intOpcion()) != 6)
+		}while ((eleccion = intOpcion()) != 6);
 		fclose(ptrCf); /* fclose cierra el archivo */
 	}
 	return 0; /* indica terminación exitosa */
@@ -217,7 +219,7 @@ void imprimirRegistro(FILE *ptrF) {
 
 int intOpcion(void) {
 	printf("\n");
-	int opcion;
+	int opcion = NULL;
 	printf("Seleccione una opción:\n");
 	printf("1 - Crear archivo de texto con formato para impresión\n");
 	printf("2 - Actualizar un registro\n");
