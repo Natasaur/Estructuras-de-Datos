@@ -4,71 +4,75 @@
 #include <stdlib.h>
 
 struct Pila {
-   int dato[100];
-   int cima;
+   int dato;
+   struct Pila *ptrSiguiente;
 };
 
 // Prototipos de funciones
 int intOpcion(void);
-void LlenarPila(struct Pila *p);
+void LlenarPila(struct Pila **p);
 void MostrarPila(struct Pila *p);
-void EliminarPila(struct Pila *p);
+void EliminarPila(struct Pila **p);
 
 int main() {
-   struct Pila pila;
-   int eleccion;
-   pila.cima = -1;
+   struct Pila *ptrPila = NULL;
    system("cls");
+   int opc;
    do{
-      switch(eleccion){
+      switch(opc){
          case 1: //Agregar elementos
-            LlenarPila(&pila);
+            LlenarPila(&ptrPila);
             break;
          case 2: //Mostrar pila
-            MostrarPila(&pila);
+            MostrarPila(ptrPila);
             break;
          case 3: //Eliminar último elemento
-            EliminarPila(&pila);
+            EliminarPila(&ptrPila);
             break;
          default:
-            if (eleccion < 1 || eleccion > 6) {
+            if (opc < 1 || opc > 4) {
                   printf("Opción incorrecta\n");
-               }
+            }
             break;
       }
-   }while((eleccion = intOpcion()) != 4);
+   }while((opc = intOpcion()) != 4);
    return 0;
 }
 
-void LlenarPila(struct Pila *p) {
+void LlenarPila(struct Pila **p) {
    int dato;
-   if (p->cima < 100 - 1) {
-      printf("Ingresa el dato:\n");
-      scanf("%d",&dato);
-      p->cima++;
-      p->dato[p->cima] = dato;
-      
-   } else {
-      printf("La pila está llena.\n");
+   struct Pila *nuevoNodo = (struct Pila*) malloc(sizeof(struct Pila));
+   if(nuevoNodo == NULL) {
+      printf("No hay memoria disponible.\n");
+      return;
    }
+   printf("Ingrese el dato: ");
+   scanf("%d",&dato);
+   nuevoNodo->dato = dato;
+   nuevoNodo->ptrSiguiente = *p;
+   *p = nuevoNodo;
 }
 
 void MostrarPila(struct Pila *p) {
-   if (p->cima == -1) {
+   if (p == NULL) {
       printf("La pila está vacía.\n");
    } else {
+      struct Pila *actual = p;
       printf("Contenido de la pila:\n");
-      for (int i = p->cima; i >= 0; i--) {
-         printf("%d\n", p->dato[i]);
+      while(actual != NULL){
+         printf("%d\n", actual->dato);
+         actual = actual->ptrSiguiente;
       }
    }
 }
 
-void EliminarPila(struct Pila *p){
-   if (p->cima == -1) {
+void EliminarPila(struct Pila **p){
+   if (p == NULL) {
       printf("\nLa pila está vacía.\n");
    } else {
-      p->cima--;
+      struct Pila *ptrTemp = *p;
+      *p = (*p)->ptrSiguiente;
+      free(ptrTemp);
       printf("\nÚltimo elemento eliminado.\n");
    }
 }
